@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package microdungeon;
+option go_package = "microdungeon";
+
+// Alignment is a standard alignment state.
+message Alignment {
+    int32 ethical = 1;  // Lawful/Chaotic
+    int32 moral = 2;    // Good/Evil
+}

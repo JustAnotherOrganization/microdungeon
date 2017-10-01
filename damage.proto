@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package microdungeon;
+option go_package = "microdungeon";
+
+// DamageType helps define types of damage.
+enum DamageType {
+    UNKNOWN_DAMAGE_TYPE = 0;
+    BLUDGEONING = 1;
+    PIERCING = 2;
+    SLASHING = 3;
+    // TODO: elemental types, etc.
+}

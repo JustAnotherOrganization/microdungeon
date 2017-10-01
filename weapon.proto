@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package microdungeon;
+option go_package = "microdungeon";
+
+import "ability_scores.proto";
+import "damage.proto";
+import "types.proto";
+
+// Ammunition implements ammunition for projectile weapons.
+message Ammunition {
+    enum Type {
+        UNKNOWN_TYPE = 0;
+        ARROW = 1;
+        BOLT = 2;
+        PEBBLE = 3;
+    }
+
+    string name = 1;
+    repeated string aliases = 2;
+    string description = 3;
+    DamageType damage_type = 4;
+    Type type = 5;
+    Calculator wc = 6;
+    repeated Modifier modifiers = 7;
+    uint32 weight = 8;
+    uint32 range_modifier = 9;
+}
+
+// Weapon is the basis for all weapons.
+message Weapon {
+    enum Type {
+        UNKNOWN_TYPE = 0;
+        DAGGER = 1;
+        SHORT_BLADE = 2;
+        LONG_BLADE = 3;
+        HAMMER = 4;
+        AXE = 5;
+        POLE_ARM = 6;
+        
+        BOW = 50;
+        CROSSBOW = 51;
+
+        BLACK_POWDER_PISTOL = 100;
+        BLACK_POWDER_RIFLE = 101;
+        PISTOL = 102;
+        RIFLE = 103;
+
+        CANNON = 150;
+    }
+
+    message ProjectileAttributes {
+        Ammunition.Type type = 1;
+        uint32 per_shot = 2; // rounds used in a shot.
+        uint32 range_min = 3;
+        uint32 range_max = 4;
+        uint32 magazine_size = 5;
+        uint32 reload_time = 6; // in seconds.
+    }
+
+    string name = 1;
+    repeated string aliases = 2;
+    string description = 3;
+    WeightClass weight_class = 4;
+    Type type = 5;
+    Calculator wc = 6;
+    repeated Modifier modifiers = 7;
+    bool stealth_advantage = 8;
+    uint32 weight = 9;
+    bool thrown = 10;
+    bool reach = 12;
+    bool two_handed = 13;
+    bool versatile = 14;
+
+    oneof attributes {
+        DamageType damage_type = 15;
+        ProjectileAttributes projectile_attributes = 16;
+    }
+
+    // TODO: embedded skills and/or domains,
+    //       weild/unwield catch functionality.
+
+    // TODO: reduce this number once we have a better idea of used fields.
+    bool wielded = 100;
+}

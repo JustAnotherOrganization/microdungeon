@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package microdungeon;
+option go_package = "microdungeon";
+
+enum AbilityType {
+    UNKNOWN = 0;
+    STRENGTH = 1;
+    DEXTERITY = 2;
+    CONSTITION = 3;
+    INTELLIGENCE = 4;
+    WISDOM = 5;
+    CHARISMA = 6;
+}
+
+// Ability is a standard D&D ability.
+message Ability {
+    AbilityType type = 1;   // The type ability for this score.
+    int32 value = 2;        // The value for the score.
+}
+
+// Score houses all the ability scores of a given object.
+message Score {
+    repeated Ability set = 1;
+}
+
+// Modifier is a standard D&D ability modifier.
+message Modifier {
+    AbilityType type = 1;
+    int32 max = 2;
+    int32 die = 3;
+}

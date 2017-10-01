@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package microdungeon;
+option go_package = "microdungeon";
+
+import "ability_scores.proto";
+import "alignment.proto";
+import "armour.proto";
+import "race.proto";
+import "weapon.proto";
+
+// Character is a playable D&D character.
+message Character {
+    enum Gender {
+        NEUTER = 0;
+        MALE = 1;
+        FEMALE = 2;
+    }
+    string name = 1;
+    string player_name = 2;
+    Gender gender = 3;
+    Race race = 4;
+    //Class class = 5;
+    uint32 level = 6;
+    Alignment alignment = 7;
+    uint32 experience = 8;
+    Score score = 9;
+
+    // TODO: inspiration,
+    //       backgrounds (own type (like class)).
+
+    // TODO: reduce this number once we have a better idea of used fields.
+
+    Weapon wielding = 100;
+    repeated Armour armour = 101;
+}
