@@ -34,8 +34,8 @@ const (
 	chaotic = -50
 )
 
-// AsString returns the recognized string name of the given Alignment.
-func (a *Alignment) AsString() string {
+// String returns the recognized string name of the given Alignment.
+func (a *Alignment) String() string {
 	switch {
 	case a.Moral >= good && a.Ethical >= lawful:
 		return LawfulGood

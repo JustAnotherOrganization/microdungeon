@@ -49,7 +49,7 @@ var _ = Describe("Alignment", func() {
 			Expect((&Alignment{
 				Moral:   tc.moral,
 				Ethical: tc.ethical,
-			}).AsString()).To(Equal(tc.expected))
+			}).String()).To(Equal(tc.expected))
 		}
 	})
 })
