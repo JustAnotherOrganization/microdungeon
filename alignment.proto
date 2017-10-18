@@ -3,8 +3,13 @@ syntax = "proto3";
 package microdungeon;
 option go_package = "microdungeon";
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
 // Alignment is a standard alignment state.
 message Alignment {
+    // Allow us to set our own String function for this message.
+    option(gogoproto.goproto_stringer) = false;
+
     int32 ethical = 1;  // Lawful/Chaotic
     int32 moral = 2;    // Good/Evil
 }
