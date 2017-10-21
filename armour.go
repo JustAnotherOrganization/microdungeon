@@ -1,11 +1,11 @@
 package microdungeon
 
-import (
-	"github.com/pkg/errors"
-)
+import "github.com/pkg/errors"
 
 var (
 	// MaxRings is the max number of rings a character can wear.
+	// TODO: make this dependent on race (we may want to support a race with
+	// 3 hands for example).
 	MaxRings = 2
 	// MaxUnknown is the max number of unknown items a character can wear.
 	MaxUnknown = 3
@@ -16,7 +16,6 @@ func (a *Armour) checkWear(c *Character) error {
 		return errors.New("c cannot be nil")
 	}
 
-	// FIXME: see tests.
 	var (
 		rings   = make([]*Armour, 0, MaxRings)
 		unknown = make([]*Armour, 0, MaxUnknown)
@@ -29,17 +28,17 @@ func (a *Armour) checkWear(c *Character) error {
 				Armour_BELT, Armour_CLOAK, Armour_SHIELD, Armour_GLASSES:
 				return errors.Errorf("%s is already worn", _a.Name)
 			case Armour_RING:
+				rings = append(rings, _a)
+
 				if len(rings) >= MaxRings {
 					return errors.Errorf("%s and %s are already worn", rings[0].Name, rings[1].Name)
 				}
-
-				rings = append(rings, _a)
 			default:
+				unknown = append(unknown, _a)
+
 				if len(unknown) >= MaxUnknown {
 					return errors.Errorf("%s, %s and %s are already worn", unknown[0].Name, unknown[1].Name, unknown[2].Name)
 				}
-
-				unknown = append(unknown, _a)
 			}
 		}
 	}

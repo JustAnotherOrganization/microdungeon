@@ -64,22 +64,21 @@ var _ = Describe("Armour", func() {
 			err = a.Wear(char)
 			Expect(err).ToNot(BeNil())
 		})
-		// FIXME:
-		/*
-			It("ensures only two rings can be worn", func() {
-				a := newTestArmour(Armour_RING, WeightClass_LIGHT)
-				err := a.Wear(char)
-				Expect(err).To(BeNil())
 
-				a = newTestArmour(Armour_RING, WeightClass_LIGHT)
-				err = a.Wear(char)
-				Expect(err).To(BeNil())
+		It("ensures only two rings can be worn", func() {
+			a := newTestArmour(Armour_RING, WeightClass_LIGHT)
+			err := a.Wear(char)
+			Expect(err).To(BeNil())
 
-				a = newTestArmour(Armour_RING, WeightClass_LIGHT)
-				err = a.Wear(char)
-				Expect(err).ToNot(BeNil())
-			})
-		*/
+			a = newTestArmour(Armour_RING, WeightClass_LIGHT)
+			err = a.Wear(char)
+			Expect(err).To(BeNil())
+
+			a = newTestArmour(Armour_RING, WeightClass_LIGHT)
+			err = a.Wear(char)
+			Expect(err).ToNot(BeNil())
+		})
+
 		It("ensures only one belt can be worn", func() {
 			a := newTestArmour(Armour_BELT, WeightClass_LIGHT)
 			err := a.Wear(char)
@@ -119,25 +118,22 @@ var _ = Describe("Armour", func() {
 			err = a.Wear(char)
 			Expect(err).ToNot(BeNil())
 		})
-		// FIXME:
-		/*
-			It("ensures only three pieces of unknown gear can be worn", func() {
-				a := newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
-				err := a.Wear(char)
-				Expect(err).To(BeNil())
+		It("ensures only three pieces of unknown gear can be worn", func() {
+			a := newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
+			err := a.Wear(char)
+			Expect(err).To(BeNil())
 
-				a = newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
-				err = a.Wear(char)
-				Expect(err).To(BeNil())
+			a = newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
+			err = a.Wear(char)
+			Expect(err).To(BeNil())
 
-				a = newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
-				err = a.Wear(char)
-				Expect(err).To(BeNil())
+			a = newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
+			err = a.Wear(char)
+			Expect(err).To(BeNil())
 
-				a = newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
-				err = a.Wear(char)
-				Expect(err).ToNot(BeNil())
-			})
-		*/
+			a = newTestArmour(Armour_UNKNOWN, WeightClass_LIGHT)
+			err = a.Wear(char)
+			Expect(err).ToNot(BeNil())
+		})
 	})
 })
