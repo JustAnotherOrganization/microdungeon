@@ -12,6 +12,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
+
 type Ammunition_Type int32
 
 const (
@@ -37,7 +43,9 @@ var Ammunition_Type_value = map[string]int32{
 func (x Ammunition_Type) String() string {
 	return proto.EnumName(Ammunition_Type_name, int32(x))
 }
-func (Ammunition_Type) EnumDescriptor() ([]byte, []int) { return fileDescriptorWeapon, []int{0, 0} }
+func (Ammunition_Type) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_weapon_b18e98a04c0e8346, []int{0, 0}
+}
 
 type Weapon_Type int32
 
@@ -94,25 +102,49 @@ var Weapon_Type_value = map[string]int32{
 func (x Weapon_Type) String() string {
 	return proto.EnumName(Weapon_Type_name, int32(x))
 }
-func (Weapon_Type) EnumDescriptor() ([]byte, []int) { return fileDescriptorWeapon, []int{1, 0} }
+func (Weapon_Type) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_weapon_b18e98a04c0e8346, []int{1, 0}
+}
 
 // Ammunition implements ammunition for projectile weapons.
 type Ammunition struct {
-	Name          string          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Aliases       []string        `protobuf:"bytes,2,rep,name=aliases" json:"aliases,omitempty"`
-	Description   string          `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	DamageType    DamageType      `protobuf:"varint,4,opt,name=damage_type,json=damageType,proto3,enum=microdungeon.DamageType" json:"damage_type,omitempty"`
-	Type          Ammunition_Type `protobuf:"varint,5,opt,name=type,proto3,enum=microdungeon.Ammunition_Type" json:"type,omitempty"`
-	Wc            *Calculator     `protobuf:"bytes,6,opt,name=wc" json:"wc,omitempty"`
-	Modifiers     []*Modifier     `protobuf:"bytes,7,rep,name=modifiers" json:"modifiers,omitempty"`
-	Weight        uint32          `protobuf:"varint,8,opt,name=weight,proto3" json:"weight,omitempty"`
-	RangeModifier uint32          `protobuf:"varint,9,opt,name=range_modifier,json=rangeModifier,proto3" json:"range_modifier,omitempty"`
+	Name                 string          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Aliases              []string        `protobuf:"bytes,2,rep,name=aliases" json:"aliases,omitempty"`
+	Description          string          `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	DamageType           DamageType      `protobuf:"varint,4,opt,name=damage_type,json=damageType,proto3,enum=microdungeon.DamageType" json:"damage_type,omitempty"`
+	Type                 Ammunition_Type `protobuf:"varint,5,opt,name=type,proto3,enum=microdungeon.Ammunition_Type" json:"type,omitempty"`
+	Wc                   *Calculator     `protobuf:"bytes,6,opt,name=wc" json:"wc,omitempty"`
+	Modifiers            []*Modifier     `protobuf:"bytes,7,rep,name=modifiers" json:"modifiers,omitempty"`
+	Weight               uint32          `protobuf:"varint,8,opt,name=weight,proto3" json:"weight,omitempty"`
+	RangeModifier        uint32          `protobuf:"varint,9,opt,name=range_modifier,json=rangeModifier,proto3" json:"range_modifier,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *Ammunition) Reset()                    { *m = Ammunition{} }
-func (m *Ammunition) String() string            { return proto.CompactTextString(m) }
-func (*Ammunition) ProtoMessage()               {}
-func (*Ammunition) Descriptor() ([]byte, []int) { return fileDescriptorWeapon, []int{0} }
+func (m *Ammunition) Reset()         { *m = Ammunition{} }
+func (m *Ammunition) String() string { return proto.CompactTextString(m) }
+func (*Ammunition) ProtoMessage()    {}
+func (*Ammunition) Descriptor() ([]byte, []int) {
+	return fileDescriptor_weapon_b18e98a04c0e8346, []int{0}
+}
+func (m *Ammunition) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Ammunition.Unmarshal(m, b)
+}
+func (m *Ammunition) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Ammunition.Marshal(b, m, deterministic)
+}
+func (dst *Ammunition) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Ammunition.Merge(dst, src)
+}
+func (m *Ammunition) XXX_Size() int {
+	return xxx_messageInfo_Ammunition.Size(m)
+}
+func (m *Ammunition) XXX_DiscardUnknown() {
+	xxx_messageInfo_Ammunition.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Ammunition proto.InternalMessageInfo
 
 func (m *Ammunition) GetName() string {
 	if m != nil {
@@ -197,13 +229,35 @@ type Weapon struct {
 	//	*Weapon_ProjectileAttributes_
 	Attributes isWeapon_Attributes `protobuf_oneof:"attributes"`
 	// TODO: reduce this number once we have a better idea of used fields.
-	Wielded bool `protobuf:"varint,100,opt,name=wielded,proto3" json:"wielded,omitempty"`
+	Wielded              bool     `protobuf:"varint,100,opt,name=wielded,proto3" json:"wielded,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Weapon) Reset()                    { *m = Weapon{} }
-func (m *Weapon) String() string            { return proto.CompactTextString(m) }
-func (*Weapon) ProtoMessage()               {}
-func (*Weapon) Descriptor() ([]byte, []int) { return fileDescriptorWeapon, []int{1} }
+func (m *Weapon) Reset()         { *m = Weapon{} }
+func (m *Weapon) String() string { return proto.CompactTextString(m) }
+func (*Weapon) ProtoMessage()    {}
+func (*Weapon) Descriptor() ([]byte, []int) {
+	return fileDescriptor_weapon_b18e98a04c0e8346, []int{1}
+}
+func (m *Weapon) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Weapon.Unmarshal(m, b)
+}
+func (m *Weapon) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Weapon.Marshal(b, m, deterministic)
+}
+func (dst *Weapon) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Weapon.Merge(dst, src)
+}
+func (m *Weapon) XXX_Size() int {
+	return xxx_messageInfo_Weapon.Size(m)
+}
+func (m *Weapon) XXX_DiscardUnknown() {
+	xxx_messageInfo_Weapon.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Weapon proto.InternalMessageInfo
 
 type isWeapon_Attributes interface {
 	isWeapon_Attributes()
@@ -393,11 +447,11 @@ func _Weapon_OneofSizer(msg proto.Message) (n int) {
 	// attributes
 	switch x := m.Attributes.(type) {
 	case *Weapon_DamageType:
-		n += proto.SizeVarint(15<<3 | proto.WireVarint)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(x.DamageType))
 	case *Weapon_ProjectileAttributes_:
 		s := proto.Size(x.ProjectileAttributes)
-		n += proto.SizeVarint(16<<3 | proto.WireBytes)
+		n += 2 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -408,20 +462,40 @@ func _Weapon_OneofSizer(msg proto.Message) (n int) {
 }
 
 type Weapon_ProjectileAttributes struct {
-	Type         Ammunition_Type `protobuf:"varint,1,opt,name=type,proto3,enum=microdungeon.Ammunition_Type" json:"type,omitempty"`
-	PerShot      uint32          `protobuf:"varint,2,opt,name=per_shot,json=perShot,proto3" json:"per_shot,omitempty"`
-	RangeMin     uint32          `protobuf:"varint,3,opt,name=range_min,json=rangeMin,proto3" json:"range_min,omitempty"`
-	RangeMax     uint32          `protobuf:"varint,4,opt,name=range_max,json=rangeMax,proto3" json:"range_max,omitempty"`
-	MagazineSize uint32          `protobuf:"varint,5,opt,name=magazine_size,json=magazineSize,proto3" json:"magazine_size,omitempty"`
-	ReloadTime   uint32          `protobuf:"varint,6,opt,name=reload_time,json=reloadTime,proto3" json:"reload_time,omitempty"`
+	Type                 Ammunition_Type `protobuf:"varint,1,opt,name=type,proto3,enum=microdungeon.Ammunition_Type" json:"type,omitempty"`
+	PerShot              uint32          `protobuf:"varint,2,opt,name=per_shot,json=perShot,proto3" json:"per_shot,omitempty"`
+	RangeMin             uint32          `protobuf:"varint,3,opt,name=range_min,json=rangeMin,proto3" json:"range_min,omitempty"`
+	RangeMax             uint32          `protobuf:"varint,4,opt,name=range_max,json=rangeMax,proto3" json:"range_max,omitempty"`
+	MagazineSize         uint32          `protobuf:"varint,5,opt,name=magazine_size,json=magazineSize,proto3" json:"magazine_size,omitempty"`
+	ReloadTime           uint32          `protobuf:"varint,6,opt,name=reload_time,json=reloadTime,proto3" json:"reload_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
 func (m *Weapon_ProjectileAttributes) Reset()         { *m = Weapon_ProjectileAttributes{} }
 func (m *Weapon_ProjectileAttributes) String() string { return proto.CompactTextString(m) }
 func (*Weapon_ProjectileAttributes) ProtoMessage()    {}
 func (*Weapon_ProjectileAttributes) Descriptor() ([]byte, []int) {
-	return fileDescriptorWeapon, []int{1, 0}
+	return fileDescriptor_weapon_b18e98a04c0e8346, []int{1, 0}
 }
+func (m *Weapon_ProjectileAttributes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Weapon_ProjectileAttributes.Unmarshal(m, b)
+}
+func (m *Weapon_ProjectileAttributes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Weapon_ProjectileAttributes.Marshal(b, m, deterministic)
+}
+func (dst *Weapon_ProjectileAttributes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Weapon_ProjectileAttributes.Merge(dst, src)
+}
+func (m *Weapon_ProjectileAttributes) XXX_Size() int {
+	return xxx_messageInfo_Weapon_ProjectileAttributes.Size(m)
+}
+func (m *Weapon_ProjectileAttributes) XXX_DiscardUnknown() {
+	xxx_messageInfo_Weapon_ProjectileAttributes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Weapon_ProjectileAttributes proto.InternalMessageInfo
 
 func (m *Weapon_ProjectileAttributes) GetType() Ammunition_Type {
 	if m != nil {
@@ -473,9 +547,9 @@ func init() {
 	proto.RegisterEnum("microdungeon.Weapon_Type", Weapon_Type_name, Weapon_Type_value)
 }
 
-func init() { proto.RegisterFile("weapon.proto", fileDescriptorWeapon) }
+func init() { proto.RegisterFile("weapon.proto", fileDescriptor_weapon_b18e98a04c0e8346) }
 
-var fileDescriptorWeapon = []byte{
+var fileDescriptor_weapon_b18e98a04c0e8346 = []byte{
 	// 795 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xdd, 0x6e, 0xe3, 0x44,
 	0x14, 0xae, 0x93, 0xd4, 0x8d, 0x8f, 0x93, 0xec, 0x30, 0x94, 0x32, 0x5b, 0x58, 0x11, 0x15, 0x21,

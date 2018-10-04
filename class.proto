@@ -4,12 +4,14 @@ package microdungeon;
 option go_package = "microdungeon";
 
 import "ability_scores.proto";
+import "weapon.proto";
 
 // Class is a playable D&D class.
 message Class {
     string name = 1;
     uint32 hit_die = 2;
     repeated AbilityType primary_abilities = 3;
+    repeated Weapon.Type weapon_type_restrictions = 4;
     // TODO: alignment restrictions,
     //       skills,
     //       domains (for clerics),

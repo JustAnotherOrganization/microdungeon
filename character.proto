@@ -6,6 +6,7 @@ option go_package = "microdungeon";
 import "ability_scores.proto";
 import "alignment.proto";
 import "armour.proto";
+import "class.proto";
 import "race.proto";
 import "weapon.proto";
 
@@ -20,7 +21,7 @@ message Character {
     string player_name = 2;
     Gender gender = 3;
     Race race = 4;
-    //Class class = 5;
+    Class class = 5;
     uint32 level = 6;
     Alignment alignment = 7;
     uint32 experience = 8;

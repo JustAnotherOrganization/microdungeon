@@ -13,15 +13,43 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
+
 // Alignment is a standard alignment state.
 type Alignment struct {
-	Ethical int32 `protobuf:"varint,1,opt,name=ethical,proto3" json:"ethical,omitempty"`
-	Moral   int32 `protobuf:"varint,2,opt,name=moral,proto3" json:"moral,omitempty"`
+	Ethical              int32    `protobuf:"varint,1,opt,name=ethical,proto3" json:"ethical,omitempty"`
+	Moral                int32    `protobuf:"varint,2,opt,name=moral,proto3" json:"moral,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Alignment) Reset()                    { *m = Alignment{} }
-func (*Alignment) ProtoMessage()               {}
-func (*Alignment) Descriptor() ([]byte, []int) { return fileDescriptorAlignment, []int{0} }
+func (m *Alignment) Reset()      { *m = Alignment{} }
+func (*Alignment) ProtoMessage() {}
+func (*Alignment) Descriptor() ([]byte, []int) {
+	return fileDescriptor_alignment_2473e18cac4fa150, []int{0}
+}
+func (m *Alignment) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Alignment.Unmarshal(m, b)
+}
+func (m *Alignment) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Alignment.Marshal(b, m, deterministic)
+}
+func (dst *Alignment) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Alignment.Merge(dst, src)
+}
+func (m *Alignment) XXX_Size() int {
+	return xxx_messageInfo_Alignment.Size(m)
+}
+func (m *Alignment) XXX_DiscardUnknown() {
+	xxx_messageInfo_Alignment.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Alignment proto.InternalMessageInfo
 
 func (m *Alignment) GetEthical() int32 {
 	if m != nil {
@@ -41,9 +69,9 @@ func init() {
 	proto.RegisterType((*Alignment)(nil), "microdungeon.Alignment")
 }
 
-func init() { proto.RegisterFile("alignment.proto", fileDescriptorAlignment) }
+func init() { proto.RegisterFile("alignment.proto", fileDescriptor_alignment_2473e18cac4fa150) }
 
-var fileDescriptorAlignment = []byte{
+var fileDescriptor_alignment_2473e18cac4fa150 = []byte{
 	// 144 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0xcc, 0xc9, 0x4c,
 	0xcf, 0xcb, 0x4d, 0xcd, 0x2b, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xc9, 0xcd, 0x4c,

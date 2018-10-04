@@ -12,6 +12,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
+
 // DamageType helps define types of damage.
 type DamageType int32
 
@@ -38,15 +44,17 @@ var DamageType_value = map[string]int32{
 func (x DamageType) String() string {
 	return proto.EnumName(DamageType_name, int32(x))
 }
-func (DamageType) EnumDescriptor() ([]byte, []int) { return fileDescriptorDamage, []int{0} }
+func (DamageType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_damage_3f0763778324a9e6, []int{0}
+}
 
 func init() {
 	proto.RegisterEnum("microdungeon.DamageType", DamageType_name, DamageType_value)
 }
 
-func init() { proto.RegisterFile("damage.proto", fileDescriptorDamage) }
+func init() { proto.RegisterFile("damage.proto", fileDescriptor_damage_3f0763778324a9e6) }
 
-var fileDescriptorDamage = []byte{
+var fileDescriptor_damage_3f0763778324a9e6 = []byte{
 	// 137 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x49, 0x49, 0xcc, 0x4d,
 	0x4c, 0x4f, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xc9, 0xcd, 0x4c, 0x2e, 0xca, 0x4f,

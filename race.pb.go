@@ -12,21 +12,49 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
+
 // Race is a playable D&D race.
 type Race struct {
-	Name           string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Genus          string   `protobuf:"bytes,2,opt,name=genus,proto3" json:"genus,omitempty"`
-	Description    string   `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	Score          *Score   `protobuf:"bytes,4,opt,name=score" json:"score,omitempty"`
-	NightVision    bool     `protobuf:"varint,5,opt,name=night_vision,json=nightVision,proto3" json:"night_vision,omitempty"`
-	KnownLanguages []string `protobuf:"bytes,6,rep,name=known_languages,json=knownLanguages" json:"known_languages,omitempty"`
-	Undead         bool     `protobuf:"varint,7,opt,name=undead,proto3" json:"undead,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Genus                string   `protobuf:"bytes,2,opt,name=genus,proto3" json:"genus,omitempty"`
+	Description          string   `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	Score                *Score   `protobuf:"bytes,4,opt,name=score" json:"score,omitempty"`
+	NightVision          bool     `protobuf:"varint,5,opt,name=night_vision,json=nightVision,proto3" json:"night_vision,omitempty"`
+	KnownLanguages       []string `protobuf:"bytes,6,rep,name=known_languages,json=knownLanguages" json:"known_languages,omitempty"`
+	Undead               bool     `protobuf:"varint,7,opt,name=undead,proto3" json:"undead,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Race) Reset()                    { *m = Race{} }
-func (m *Race) String() string            { return proto.CompactTextString(m) }
-func (*Race) ProtoMessage()               {}
-func (*Race) Descriptor() ([]byte, []int) { return fileDescriptorRace, []int{0} }
+func (m *Race) Reset()         { *m = Race{} }
+func (m *Race) String() string { return proto.CompactTextString(m) }
+func (*Race) ProtoMessage()    {}
+func (*Race) Descriptor() ([]byte, []int) {
+	return fileDescriptor_race_51f4e179de3a42e7, []int{0}
+}
+func (m *Race) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Race.Unmarshal(m, b)
+}
+func (m *Race) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Race.Marshal(b, m, deterministic)
+}
+func (dst *Race) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Race.Merge(dst, src)
+}
+func (m *Race) XXX_Size() int {
+	return xxx_messageInfo_Race.Size(m)
+}
+func (m *Race) XXX_DiscardUnknown() {
+	xxx_messageInfo_Race.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Race proto.InternalMessageInfo
 
 func (m *Race) GetName() string {
 	if m != nil {
@@ -81,9 +109,9 @@ func init() {
 	proto.RegisterType((*Race)(nil), "microdungeon.Race")
 }
 
-func init() { proto.RegisterFile("race.proto", fileDescriptorRace) }
+func init() { proto.RegisterFile("race.proto", fileDescriptor_race_51f4e179de3a42e7) }
 
-var fileDescriptorRace = []byte{
+var fileDescriptor_race_51f4e179de3a42e7 = []byte{
 	// 232 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x90, 0x31, 0x4f, 0xc3, 0x30,
 	0x10, 0x85, 0x65, 0x9a, 0x04, 0x7a, 0xa9, 0x8a, 0x64, 0x2a, 0x64, 0x31, 0x19, 0x16, 0xc2, 0x92,

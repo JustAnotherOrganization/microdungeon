@@ -12,6 +12,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
+
 // WeightClass defines a common set of weight classes for weapons and armour.
 type WeightClass int32
 
@@ -38,19 +44,43 @@ var WeightClass_value = map[string]int32{
 func (x WeightClass) String() string {
 	return proto.EnumName(WeightClass_name, int32(x))
 }
-func (WeightClass) EnumDescriptor() ([]byte, []int) { return fileDescriptorTypes, []int{0} }
+func (WeightClass) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_types_2c8499e1c7b54802, []int{0}
+}
 
 // Calculator implements a simple method of using ability modifiers to
 // calculate things such as WC and AC.
 type Calculator struct {
-	Base      uint32      `protobuf:"varint,1,opt,name=base,proto3" json:"base,omitempty"`
-	Modifiers []*Modifier `protobuf:"bytes,2,rep,name=modifiers" json:"modifiers,omitempty"`
+	Base                 uint32      `protobuf:"varint,1,opt,name=base,proto3" json:"base,omitempty"`
+	Modifiers            []*Modifier `protobuf:"bytes,2,rep,name=modifiers" json:"modifiers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *Calculator) Reset()                    { *m = Calculator{} }
-func (m *Calculator) String() string            { return proto.CompactTextString(m) }
-func (*Calculator) ProtoMessage()               {}
-func (*Calculator) Descriptor() ([]byte, []int) { return fileDescriptorTypes, []int{0} }
+func (m *Calculator) Reset()         { *m = Calculator{} }
+func (m *Calculator) String() string { return proto.CompactTextString(m) }
+func (*Calculator) ProtoMessage()    {}
+func (*Calculator) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_2c8499e1c7b54802, []int{0}
+}
+func (m *Calculator) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Calculator.Unmarshal(m, b)
+}
+func (m *Calculator) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Calculator.Marshal(b, m, deterministic)
+}
+func (dst *Calculator) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Calculator.Merge(dst, src)
+}
+func (m *Calculator) XXX_Size() int {
+	return xxx_messageInfo_Calculator.Size(m)
+}
+func (m *Calculator) XXX_DiscardUnknown() {
+	xxx_messageInfo_Calculator.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Calculator proto.InternalMessageInfo
 
 func (m *Calculator) GetBase() uint32 {
 	if m != nil {
@@ -71,9 +101,9 @@ func init() {
 	proto.RegisterEnum("microdungeon.WeightClass", WeightClass_name, WeightClass_value)
 }
 
-func init() { proto.RegisterFile("types.proto", fileDescriptorTypes) }
+func init() { proto.RegisterFile("types.proto", fileDescriptor_types_2c8499e1c7b54802) }
 
-var fileDescriptorTypes = []byte{
+var fileDescriptor_types_2c8499e1c7b54802 = []byte{
 	// 210 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0xa9, 0x2c, 0x48,
 	0x2d, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xc9, 0xcd, 0x4c, 0x2e, 0xca, 0x4f, 0x29,

@@ -12,20 +12,48 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
+
 // Skill is a usable D&D skill.
 type Skill struct {
 	Name            string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Description     string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	DifficultyClass uint32 `protobuf:"varint,3,opt,name=DifficultyClass,proto3" json:"DifficultyClass,omitempty"`
 	// armour_check_penalty = 4; // Determine type...
-	Modifiers []*Modifier `protobuf:"bytes,5,rep,name=modifiers" json:"modifiers,omitempty"`
-	Trained   bool        `protobuf:"varint,6,opt,name=trained,proto3" json:"trained,omitempty"`
+	Modifiers            []*Modifier `protobuf:"bytes,5,rep,name=modifiers" json:"modifiers,omitempty"`
+	Trained              bool        `protobuf:"varint,6,opt,name=trained,proto3" json:"trained,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *Skill) Reset()                    { *m = Skill{} }
-func (m *Skill) String() string            { return proto.CompactTextString(m) }
-func (*Skill) ProtoMessage()               {}
-func (*Skill) Descriptor() ([]byte, []int) { return fileDescriptorSkill, []int{0} }
+func (m *Skill) Reset()         { *m = Skill{} }
+func (m *Skill) String() string { return proto.CompactTextString(m) }
+func (*Skill) ProtoMessage()    {}
+func (*Skill) Descriptor() ([]byte, []int) {
+	return fileDescriptor_skill_6c51de44642e4f7b, []int{0}
+}
+func (m *Skill) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Skill.Unmarshal(m, b)
+}
+func (m *Skill) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Skill.Marshal(b, m, deterministic)
+}
+func (dst *Skill) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Skill.Merge(dst, src)
+}
+func (m *Skill) XXX_Size() int {
+	return xxx_messageInfo_Skill.Size(m)
+}
+func (m *Skill) XXX_DiscardUnknown() {
+	xxx_messageInfo_Skill.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Skill proto.InternalMessageInfo
 
 func (m *Skill) GetName() string {
 	if m != nil {
@@ -66,9 +94,9 @@ func init() {
 	proto.RegisterType((*Skill)(nil), "microdungeon.Skill")
 }
 
-func init() { proto.RegisterFile("skill.proto", fileDescriptorSkill) }
+func init() { proto.RegisterFile("skill.proto", fileDescriptor_skill_6c51de44642e4f7b) }
 
-var fileDescriptorSkill = []byte{
+var fileDescriptor_skill_6c51de44642e4f7b = []byte{
 	// 204 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0xce, 0xce, 0xcc,
 	0xc9, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xc9, 0xcd, 0x4c, 0x2e, 0xca, 0x4f, 0x29,

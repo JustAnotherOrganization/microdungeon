@@ -12,6 +12,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
+
 type Armour_Type int32
 
 const (
@@ -55,26 +61,50 @@ var Armour_Type_value = map[string]int32{
 func (x Armour_Type) String() string {
 	return proto.EnumName(Armour_Type_name, int32(x))
 }
-func (Armour_Type) EnumDescriptor() ([]byte, []int) { return fileDescriptorArmour, []int{0, 0} }
+func (Armour_Type) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_armour_649b91afd0e7d234, []int{0, 0}
+}
 
 // Armour is the basis for all armour.
 type Armour struct {
-	Name             string      `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Aliases          []string    `protobuf:"bytes,2,rep,name=aliases" json:"aliases,omitempty"`
-	Description      string      `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	WeightClass      WeightClass `protobuf:"varint,4,opt,name=weight_class,json=weightClass,proto3,enum=microdungeon.WeightClass" json:"weight_class,omitempty"`
-	Type             Armour_Type `protobuf:"varint,5,opt,name=type,proto3,enum=microdungeon.Armour_Type" json:"type,omitempty"`
-	Ac               *Calculator `protobuf:"bytes,6,opt,name=ac" json:"ac,omitempty"`
-	Modifiers        []*Modifier `protobuf:"bytes,7,rep,name=modifiers" json:"modifiers,omitempty"`
-	StealthAdvantage bool        `protobuf:"varint,8,opt,name=stealth_advantage,json=stealthAdvantage,proto3" json:"stealth_advantage,omitempty"`
-	Weight           uint32      `protobuf:"varint,9,opt,name=weight,proto3" json:"weight,omitempty"`
-	Worn             bool        `protobuf:"varint,100,opt,name=worn,proto3" json:"worn,omitempty"`
+	Name                 string      `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Aliases              []string    `protobuf:"bytes,2,rep,name=aliases" json:"aliases,omitempty"`
+	Description          string      `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	WeightClass          WeightClass `protobuf:"varint,4,opt,name=weight_class,json=weightClass,proto3,enum=microdungeon.WeightClass" json:"weight_class,omitempty"`
+	Type                 Armour_Type `protobuf:"varint,5,opt,name=type,proto3,enum=microdungeon.Armour_Type" json:"type,omitempty"`
+	Ac                   *Calculator `protobuf:"bytes,6,opt,name=ac" json:"ac,omitempty"`
+	Modifiers            []*Modifier `protobuf:"bytes,7,rep,name=modifiers" json:"modifiers,omitempty"`
+	StealthAdvantage     bool        `protobuf:"varint,8,opt,name=stealth_advantage,json=stealthAdvantage,proto3" json:"stealth_advantage,omitempty"`
+	Weight               uint32      `protobuf:"varint,9,opt,name=weight,proto3" json:"weight,omitempty"`
+	Worn                 bool        `protobuf:"varint,100,opt,name=worn,proto3" json:"worn,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *Armour) Reset()                    { *m = Armour{} }
-func (m *Armour) String() string            { return proto.CompactTextString(m) }
-func (*Armour) ProtoMessage()               {}
-func (*Armour) Descriptor() ([]byte, []int) { return fileDescriptorArmour, []int{0} }
+func (m *Armour) Reset()         { *m = Armour{} }
+func (m *Armour) String() string { return proto.CompactTextString(m) }
+func (*Armour) ProtoMessage()    {}
+func (*Armour) Descriptor() ([]byte, []int) {
+	return fileDescriptor_armour_649b91afd0e7d234, []int{0}
+}
+func (m *Armour) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Armour.Unmarshal(m, b)
+}
+func (m *Armour) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Armour.Marshal(b, m, deterministic)
+}
+func (dst *Armour) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Armour.Merge(dst, src)
+}
+func (m *Armour) XXX_Size() int {
+	return xxx_messageInfo_Armour.Size(m)
+}
+func (m *Armour) XXX_DiscardUnknown() {
+	xxx_messageInfo_Armour.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Armour proto.InternalMessageInfo
 
 func (m *Armour) GetName() string {
 	if m != nil {
@@ -151,9 +181,9 @@ func init() {
 	proto.RegisterEnum("microdungeon.Armour_Type", Armour_Type_name, Armour_Type_value)
 }
 
-func init() { proto.RegisterFile("armour.proto", fileDescriptorArmour) }
+func init() { proto.RegisterFile("armour.proto", fileDescriptor_armour_649b91afd0e7d234) }
 
-var fileDescriptorArmour = []byte{
+var fileDescriptor_armour_649b91afd0e7d234 = []byte{
 	// 412 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x92, 0xc1, 0x6b, 0xdb, 0x30,
 	0x14, 0xc6, 0xe7, 0xd8, 0x71, 0xec, 0xe7, 0xac, 0x68, 0x62, 0x14, 0xad, 0x27, 0xd3, 0x93, 0x61,
