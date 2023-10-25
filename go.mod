@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/jackc/pgx/v5 v5.4.1
+	github.com/kr/pretty v0.3.0
 	github.com/stretchr/testify v1.8.4
 	github.com/xuri/excelize/v2 v2.7.1
 	go.uber.org/zap v1.24.0

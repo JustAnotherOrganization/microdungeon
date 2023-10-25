@@ -16,7 +16,8 @@ type (
 	Abilities struct {
 		Id  int32 `json:"id"`
 		mux sync.RWMutex
-		m   map[AbilityType]int32
+		// FIXME: I can't think of a valid reason for this to be a map, at least currently.
+		m map[AbilityType]int32
 	}
 )
 

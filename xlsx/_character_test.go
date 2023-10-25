@@ -11,7 +11,7 @@ import (
 )
 
 func TestCharacter(t *testing.T) {
-	f, err := xlsx.Character(testdata.Character())
+	f, err := xlsx.ExcelFromCharacter(testdata.Character())
 	require.NoError(t, err)
 
 	err = os.MkdirAll("testdata", 0766)
